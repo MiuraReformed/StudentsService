@@ -32,6 +32,10 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.findAll();
     }
 
+    @Override 
+    public void deleteStudent(Student student) {
+        studentRepository.delete(student);
+    }
 
     
 }

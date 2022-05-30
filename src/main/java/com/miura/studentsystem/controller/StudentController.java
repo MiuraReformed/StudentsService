@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -31,6 +32,12 @@ public class StudentController {
         public List<Student> getAllStudents(){
             return studentService.getAllStudents();
 
+        }
+
+        @RequestMapping(value  = "/delete", method = RequestMethod.DELETE)
+        public String delete(@RequestBody Student student) {
+            studentService.deleteStudent(student);
+            return "deleted";
         }
         
     
